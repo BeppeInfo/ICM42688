@@ -151,6 +151,13 @@ class ICM42688 {
 	int disableDataReadyInterrupt();
 
 	/**
+     * @brief      Check the data ready bit
+     *
+     * @return     ret 0 if not available
+     */
+	uint8_t isDataReady();
+
+	/**
      * @brief      Transfers data from ICM 42688-p to mcu.
      *             Must be called to access new measurements.
      *
@@ -291,7 +298,9 @@ class ICM42688 {
 	float _t      = 0.0f;
 	float _acc[3] = {};
 	float _gyr[3] = {};
-	uint8_t _isInterrupted = 0;
+
+	// data ready interrupt bit
+	uint8_t _isDataReady = 0;
 
 	int16_t _rawT      = 0;
 	int16_t _rawAcc[3] = {};
