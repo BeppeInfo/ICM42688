@@ -291,6 +291,7 @@ class ICM42688 {
 	float _t      = 0.0f;
 	float _acc[3] = {};
 	float _gyr[3] = {};
+	uint8_t _isInterrupted = 0;
 
 	int16_t _rawT      = 0;
 	int16_t _rawAcc[3] = {};
