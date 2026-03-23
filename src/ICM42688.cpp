@@ -275,6 +275,12 @@ int ICM42688::disableDataReadyInterrupt() {
 	return 1;
 }
 
+uint8_t ICM42688::isInterrupted() {
+  	_useSPIHS = false; // use the high speed SPI for data readout
+  	readRegisters(UB0_REG_INT_STATUS, 1, &_isInterrupted);
+  	return _isInterrupted & 0x08;
+}
+
 /* reads the most current data from ICM42688 and stores in buffer */
 int ICM42688::getAGT() {  // modified to use getRawAGT()
 	if (getRawAGT() < 0) {
