@@ -299,8 +299,8 @@ class ICM42688 {
 	float _acc[3] = {};
 	float _gyr[3] = {};
 
-	// data ready interrupt bit
-	uint8_t _isDataReady = 0;
+	// interrupt status bit
+	uint8_t _interruptStatus = 0;
 
 	int16_t _rawT      = 0;
 	int16_t _rawAcc[3] = {};
